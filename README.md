@@ -7,7 +7,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 ## Getting Started
 
 ##### Backend.
-run [Documents Spring Boot App](https://test.test/)
+run [Documents Spring Boot App](https://github.com/wjke/document-editor-backend-spring)
 
 ##### Frontend.
 ```
