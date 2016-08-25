@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default">
+	<div class="container">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/">Редактор документов</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active" *ngIf="authService.isAdmin"><a routerLink="/templates">Шаблоны</a></li>
+                <li routerLinkActive="active"><a routerLink="/documents">Документы</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-text navbar-right">Вы вошли как {{ authService.username | uppercase }} | <a (click)="authService.logout(true)" class="navbar-link">Выйти</a></p></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

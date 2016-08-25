@@ -1,0 +1,6 @@
+<div class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/documents"><span class="glyphicon glyphicon-plus"></span> Новый документ</a></li>
+        <li *ngFor="let document of documents" routerLinkActive="active"><a [routerLink]="['/documents', document.id]">{{ document.title }}</a></li>
+    </ul>
+</div>

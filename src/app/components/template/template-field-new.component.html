@@ -1,0 +1,27 @@
+<div class="jumbotron">
+	<h2>Добавление поля</h2>
+	<form [formGroup]="form" (ngSubmit)="formSubmit(form.value)" class="form-horizontal" *ngIf="template">
+		<div class="form-group" [ngClass]="{'has-error': formError || form.controls.title.touched && form.controls.title.errors}">
+			<label for="title" class="control-label col-xs-2">Название</label>
+			<div class="col-xs-10">
+				<input formControlName="title" id="title" class="form-control" trim required/>
+				<span class="help-block">{{ formError }}</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="type" class="control-label col-xs-2">Тип</label>
+			<div class="col-xs-3">
+				<select formControlName="type" class="form-control">
+					<option value="0">TEXT</option>
+					<option value="1">TEXTAREA</option>
+					<option value="2">CHECKBOX</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-offset-2 col-xs-10">
+				<button type="submit" class="btn btn-primary" [disabled]="!form.valid || !isFinished">Добавить</button>
+			</div>
+		</div>
+	</form>
+</div>

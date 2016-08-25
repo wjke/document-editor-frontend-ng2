@@ -1,0 +1,22 @@
+<document-list></document-list>
+
+<div class="col-md-9">
+	<div class="jumbotron">
+		<h2>Добавление документа</h2>
+		<form [formGroup]="form" (ngSubmit)="formSubmit(form.value)" *ngIf="templates && templates.length > 0">
+			<div class="form-group" [ngClass]="{'has-error': formError || form.controls.title.touched && form.controls.title.errors}">
+				<label for="title">Название</label>
+				<input formControlName="title" id="title" class="form-control" trim required/>
+				<span class="help-block">{{ formError }}</span>
+			</div>
+			<div class="form-group">
+				<form:label path="template">Шаблон</form:label>
+				<select formControlName="templateId" class="form-control">
+					<option *ngFor="let template of templates" [value]="template.id">{{ template.title }}</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary" [disabled]="!form.valid || !isFinished">Добавить</button>
+		</form>
+		<div class="alert alert-danger" *ngIf="templates && templates.length == 0">Нет доступных шаблонов</div>
+	</div>
+</div>
