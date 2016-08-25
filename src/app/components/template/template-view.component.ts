@@ -4,14 +4,12 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { BaseComponent } from '../base-component.component';
 import { TemplateService } from '../../services/template.service';
-import { TemplateListComponent } from './template-list.component';
 import { Template } from '../../models/template.model';
 import { Utils } from '../../common/utils';
 import { Notify } from '../../common/notify';
 
 @Component({
 	selector: 'template-view',
-	directives: [TemplateListComponent],
 	templateUrl: 'template-view.component.html'
 })
 export class TemplateViewComponent extends BaseComponent {

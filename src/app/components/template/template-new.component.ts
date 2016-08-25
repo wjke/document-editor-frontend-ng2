@@ -4,14 +4,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { BaseComponent } from '../base-component.component';
 import { TemplateService } from '../../services/template.service';
-import { TemplateListComponent } from './template-list.component';
 import { Template } from '../../models/template.model';
 import { Utils } from '../../common/utils';
 import { Notify } from '../../common/notify';
 
 @Component({
 	selector: 'template-new',
-	directives: [TemplateListComponent],
 	templateUrl: 'template-new.component.html'
 })
 export class TemplateNewComponent extends BaseComponent {

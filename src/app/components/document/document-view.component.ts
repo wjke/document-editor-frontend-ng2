@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { AuthService } from '../../services/auth.service';
 import { BaseComponent } from '../base-component.component';
-import { DocumentListComponent } from './document-list.component';
 import { DocumentService } from '../../services/document.service';
 import { Document } from '../../models/document.model';
 import { Utils } from '../../common/utils';
@@ -12,7 +11,6 @@ import { Notify } from '../../common/notify';
 
 @Component({
 	selector: 'document-view',
-	directives: [DocumentListComponent],
 	templateUrl: 'document-view.component.html'
 })
 export class DocumentViewComponent extends BaseComponent {

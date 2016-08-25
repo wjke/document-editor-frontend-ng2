@@ -5,16 +5,12 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { BaseComponent } from '../base-component.component';
 import { TemplateService } from '../../services/template.service';
-import { TemplateListComponent } from './template-list.component';
-import { TemplateFieldNewComponent } from './template-field-new.component';
-import { TemplateFieldEditComponent } from './template-field-edit.component';
 import { Template } from '../../models/template.model';
 import { Utils } from '../../common/utils';
 import { Notify } from '../../common/notify';
 
 @Component({
 	selector: 'selector',
-	directives: [TemplateListComponent, TemplateFieldNewComponent, TemplateFieldEditComponent],
 	templateUrl: 'template-edit.component.html'
 })
 export class TemplateEditComponent extends BaseComponent {

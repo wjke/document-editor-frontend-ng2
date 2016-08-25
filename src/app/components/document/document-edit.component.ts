@@ -5,16 +5,14 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { AuthService } from '../../services/auth.service';
 import { BaseComponent } from '../base-component.component';
-import { DocumentService } from '../../services/document.service';
-import { DocumentListComponent } from './document-list.component';
 import { DocumentFieldDataEditComponent } from './document-field-data-edit.component';
+import { DocumentService } from '../../services/document.service';
 import { Document } from '../../models/document.model';
 import { Utils } from '../../common/utils';
 import { Notify } from '../../common/notify';
 
 @Component({
 	selector: 'document-edit',
-	directives: [DocumentListComponent, DocumentFieldDataEditComponent],
 	templateUrl: 'document-edit.component.html'
 })
 export class DocumentEditComponent extends BaseComponent {

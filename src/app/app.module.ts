@@ -16,10 +16,15 @@ import { DocumentComponent } from './components/document/document.component';
 import { DocumentNewComponent } from './components/document/document-new.component';
 import { DocumentViewComponent } from './components/document/document-view.component';
 import { DocumentEditComponent } from './components/document/document-edit.component';
+import { DocumentListComponent } from './components/document/document-list.component';
+import { DocumentFieldDataEditComponent } from './components/document/document-field-data-edit.component';
 import { TemplateComponent } from './components/template/template.component';
 import { TemplateViewComponent } from './components/template/template-view.component';
 import { TemplateEditComponent } from './components/template/template-edit.component';
 import { TemplateNewComponent } from './components/template/template-new.component';
+import { TemplateFieldNewComponent } from './components/template/template-field-new.component';
+import { TemplateListComponent } from './components/template/template-list.component';
+import { TemplateFieldEditComponent } from './components/template/template-field-edit.component';
 import { LoginComponent } from './components/auth/login.component';
 import { AuthService } from './services/auth.service';
 import { TemplateService } from './services/template.service';
@@ -36,10 +41,15 @@ import { TrimDirective } from './pipes/trim.directive';
 		DocumentNewComponent,
 		DocumentViewComponent,
 		DocumentEditComponent,
+		DocumentListComponent,
+		DocumentFieldDataEditComponent,
 		TemplateComponent,
 		TemplateViewComponent,
 		TemplateEditComponent,
 		TemplateNewComponent,
+		TemplateFieldNewComponent,
+		TemplateListComponent,
+		TemplateFieldEditComponent,
 		LoginComponent,
 		TrimDirective
 	],

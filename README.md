@@ -1,6 +1,6 @@
 # Document Editor Frontend
 
-Angular 2 RC5 frontend for Simple Document Editor
+Angular 2 RC5 + JWT frontend for Simple Document Editor
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.11-webpack.2.
 
@@ -15,10 +15,10 @@ ng serve
 open http://localhost:4200/
 ```
 
-## License
-
-[MIT](/LICENSE)
-
 ## Screenshot
 
 ![Screenshot](screen1.png)
+
+## License
+
+[MIT](/LICENSE)
