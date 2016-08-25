@@ -18,3 +18,7 @@ open http://localhost:4200/
 ## License
 
 [MIT](/LICENSE)
+
+## Screenshot
+
+![Screenshot](https://raw.githubusercontent.com/wjke/document-editor-backend-spring/master/screen1.png)
