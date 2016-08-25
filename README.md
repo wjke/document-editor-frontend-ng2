@@ -21,4 +21,4 @@ open http://localhost:4200/
 
 ## Screenshot
 
-![Screenshot](https://raw.githubusercontent.com/wjke/document-editor-backend-spring/master/screen1.png)
+![Screenshot](screen1.png)
