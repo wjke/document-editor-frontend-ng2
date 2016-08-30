@@ -13,6 +13,7 @@ export class AuthService {
 	private token: string;
 	username: string;
 	isAdmin: boolean = false;
+	redirectUrl: string;
 	private jwtHelper: JwtHelper = new JwtHelper();
 
 	constructor(private http: Http, private router: Router) {
@@ -32,7 +33,7 @@ export class AuthService {
 		}
 	}
 
-	login(username: string, password: string): Observable<boolean> {
+	login(username: string, password: string): Observable<string> {
 		let headers = new Headers();
   		headers.append('Content-Type', 'application/json');
 		return this.http.post(this.api + 'token', JSON.stringify({username: username, password: password}), {headers}).map(response => {
@@ -41,7 +42,9 @@ export class AuthService {
 				this.token = token;
 				this.parseToken();
 				localStorage.setItem(environment.jwt, token);
-				return true;
+				let redirectUrlResult = this.redirectUrl ? this.redirectUrl : '';
+				this.redirectUrl = '';
+				return redirectUrlResult;
 			} else
 				throw new Error('token not found');
 		});

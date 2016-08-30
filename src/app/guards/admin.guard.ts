@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
 import { AuthGuard } from './auth.guard';
@@ -10,8 +10,11 @@ export class AdminGuard extends AuthGuard {
 		super(router, authService);
 	}
 
-	canActivate() {
-		if(super.canActivate() && this.authService.isAdmin)
+	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+		if(!super.canActivate(route, state))
+			return false;
+
+		if(this.authService.isAdmin)
 			return true;
 
 		this.router.navigate(['/documents']);

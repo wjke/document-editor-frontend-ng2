@@ -27,7 +27,7 @@ export class LoginComponent extends BaseComponent {
 		this.isFinished = false;
 		this.isError = false;
 		this.authService.login(username, password).subscribe(
-			resp => this.router.navigate(['']),
+			redirectUrl => this.router.navigate([redirectUrl]),
 			error => {
 				console.error(this.constructor.name, error);
 				this.isFinished = true;
