@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import { JwtHelper } from 'angular2-jwt';
 import { Router } from '@angular/router';
 
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {

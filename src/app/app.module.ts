@@ -6,7 +6,7 @@ import { HttpModule, JsonpModule, Http } from '@angular/http'
 import 'rxjs/add/operator/delay';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 
-import { environment } from './environments/environment';
+import { environment } from '../environments/environment';
 import { routing } from './app.routes';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './guards/auth.guard';

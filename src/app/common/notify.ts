@@ -27,7 +27,7 @@ export class Notify {
 	static notifyRetryLogin() {
 		if(!this.retryLoginNotify)
 			this.retryLoginNotify = this.notifyInfo('Пожалуйста, войдите повторно');
-		else
+		else if(this.retryLoginNotify.state === 'closed')
 			this.retryLoginNotify.open();
 	}
 

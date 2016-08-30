@@ -10,7 +10,7 @@ import 'rxjs/add/observable/never'
 
 import { Document } from '../models/document.model';
 import { DataField } from '../models/data-field.model';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { Notify } from '../common/notify';
 
 @Injectable()

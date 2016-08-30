@@ -10,7 +10,7 @@ import 'rxjs/add/observable/never'
 
 import { Template } from '../models/template.model';
 import { TemplateField } from '../models/template-field.model';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { Notify } from '../common/notify';
 
 @Injectable()
