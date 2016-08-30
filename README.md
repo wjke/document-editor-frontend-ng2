@@ -11,7 +11,9 @@ run [Documents Spring Boot App](https://github.com/wjke/document-editor-backend-
 
 ##### Frontend.
 ```
-ng serve
+npm install -g angular-cli
+npm install
+npm start
 open http://localhost:4200/
 ```
 
