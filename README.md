@@ -11,7 +11,6 @@ run [Documents Spring Boot App](https://github.com/wjke/document-editor-backend-
 
 ##### Frontend.
 ```
-npm install -g angular-cli@1.0.0-beta.11-webpack.8
 npm install
 npm start
 open http://localhost:4200/
