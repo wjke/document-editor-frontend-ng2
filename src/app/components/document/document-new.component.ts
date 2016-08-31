@@ -1,8 +1,9 @@
+import { Title } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { BaseComponent } from '../base-component.component';
+import { TitleComponent } from '../title-component.component';
 import { DocumentService } from '../../services/document.service';
 import { TemplateService } from '../../services/template.service';
 import { Document } from '../../models/document.model';
@@ -14,7 +15,7 @@ import { Notify } from '../../common/notify';
 	selector: 'document-new',
 	templateUrl: 'document-new.component.html'
 })
-export class DocumentNewComponent extends BaseComponent {
+export class DocumentNewComponent extends TitleComponent {
 	private templates: Template[];
 	private listTimeout = 5500;
 	private timeoutStep = 500;
@@ -23,8 +24,8 @@ export class DocumentNewComponent extends BaseComponent {
 	private isFinished = true;
 	private timeoutId: number;
 
-	constructor(private documentService: DocumentService, private templateService: TemplateService, private formBuilder: FormBuilder, private router: Router) {
-		super()
+	constructor(private documentService: DocumentService, private templateService: TemplateService, private formBuilder: FormBuilder, private router: Router, titleService: Title) {
+		super(titleService, 'Документы');
 	}
 
 	ngOnInit() {

@@ -1,8 +1,9 @@
+import { Title } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { BaseComponent } from '../base-component.component';
+import { TitleComponent } from '../title-component.component';
 import { TemplateService } from '../../services/template.service';
 import { Template } from '../../models/template.model';
 import { Utils } from '../../common/utils';
@@ -12,7 +13,7 @@ import { Notify } from '../../common/notify';
 	selector: 'template-view',
 	templateUrl: 'template-view.component.html'
 })
-export class TemplateViewComponent extends BaseComponent {
+export class TemplateViewComponent extends TitleComponent {
 	private template: Template;
 	private subscription: Subscription;
 	private isDeleteFinished = true;
@@ -20,8 +21,8 @@ export class TemplateViewComponent extends BaseComponent {
 	private timeoutStep = 500;
 	private timeoutId: number;
 
-	constructor(private templateService: TemplateService, private router: Router, private route: ActivatedRoute) {
-		super();
+	constructor(private templateService: TemplateService, private router: Router, private route: ActivatedRoute, titleService: Title) {
+		super(titleService, 'Шаблон');
 	}
 
 	ngOnInit() {
@@ -68,6 +69,7 @@ export class TemplateViewComponent extends BaseComponent {
 	private initTemplate(templateId: number) {
 		this.templateService.getTemplate(templateId).subscribe(
 			template => {
+				this.setTitle(this.getInitTitle() + ': ' + template.title);
 				this.template = template;
 				this.initFields(templateId);
 			},

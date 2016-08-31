@@ -6,7 +6,7 @@ import { AuthGuard } from './auth.guard';
 
 @Injectable()
 export class AdminGuard extends AuthGuard {
-	constructor(public router: Router, public authService: AuthService) {
+	constructor(router: Router, authService: AuthService) {
 		super(router, authService);
 	}
 

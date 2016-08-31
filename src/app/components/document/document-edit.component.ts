@@ -1,10 +1,11 @@
+import { Title } from '@angular/platform-browser';
 import { Component, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AuthService } from '../../services/auth.service';
-import { BaseComponent } from '../base-component.component';
+import { TitleComponent } from '../title-component.component';
 import { DocumentFieldDataEditComponent } from './document-field-data-edit.component';
 import { DocumentService } from '../../services/document.service';
 import { Document } from '../../models/document.model';
@@ -15,7 +16,7 @@ import { Notify } from '../../common/notify';
 	selector: 'document-edit',
 	templateUrl: 'document-edit.component.html'
 })
-export class DocumentEditComponent extends BaseComponent {
+export class DocumentEditComponent extends TitleComponent {
 	@ViewChild(DocumentFieldDataEditComponent) private dataFields: DocumentFieldDataEditComponent;
 	private document: Document;
 	private subscription: Subscription;
@@ -24,8 +25,8 @@ export class DocumentEditComponent extends BaseComponent {
 	private isFinished = true;
 	private isDeleteFinished = true;
 
-	constructor(private documentService: DocumentService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private authService: AuthService) {
-		super();
+	constructor(private documentService: DocumentService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private authService: AuthService, titleService: Title) {
+		super(titleService, 'Документ');
 	}
 
 	ngOnInit() {
@@ -49,6 +50,7 @@ export class DocumentEditComponent extends BaseComponent {
 	private initDocument(documentId: number) {
 		this.documentService.getDocument(documentId).subscribe(
 			document => {
+				this.setTitle(this.getInitTitle() + ': ' + document.title);
 				this.document = document;
 				this.initForm();
 				this.dataFields.init(this.document);

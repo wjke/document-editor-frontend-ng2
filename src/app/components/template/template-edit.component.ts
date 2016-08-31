@@ -1,9 +1,10 @@
+import { Title } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
-import { BaseComponent } from '../base-component.component';
+import { TitleComponent } from '../title-component.component';
 import { TemplateService } from '../../services/template.service';
 import { Template } from '../../models/template.model';
 import { Utils } from '../../common/utils';
@@ -13,7 +14,7 @@ import { Notify } from '../../common/notify';
 	selector: 'selector',
 	templateUrl: 'template-edit.component.html'
 })
-export class TemplateEditComponent extends BaseComponent {
+export class TemplateEditComponent extends TitleComponent {
 	private template: Template;
 	private subscription: Subscription; //Подписка на получение параметров из url
 	private form: FormGroup;
@@ -25,8 +26,8 @@ export class TemplateEditComponent extends BaseComponent {
 	private formError: string;
 	private timeoutId: number;
 
-	constructor(private templateService: TemplateService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) {
-		super();
+	constructor(private templateService: TemplateService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, titleService: Title) {
+		super(titleService, 'Шаблон');
 	}
 
 	ngOnInit() {
@@ -102,6 +103,7 @@ export class TemplateEditComponent extends BaseComponent {
 	private initTemplate(templateId: number) {
 		this.templateService.getTemplate(templateId).subscribe(
 			template => {
+				this.setTitle(this.getInitTitle() + ': ' + template.title);
 				this.template = template;
 				this.initForm();
 				this.initFields();

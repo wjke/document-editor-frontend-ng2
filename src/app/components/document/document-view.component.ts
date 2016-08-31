@@ -1,9 +1,10 @@
+import { Title } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AuthService } from '../../services/auth.service';
-import { BaseComponent } from '../base-component.component';
+import { TitleComponent } from '../title-component.component';
 import { DocumentService } from '../../services/document.service';
 import { Document } from '../../models/document.model';
 import { Utils } from '../../common/utils';
@@ -13,7 +14,7 @@ import { Notify } from '../../common/notify';
 	selector: 'document-view',
 	templateUrl: 'document-view.component.html'
 })
-export class DocumentViewComponent extends BaseComponent {
+export class DocumentViewComponent extends TitleComponent {
 	private document: Document;
 	private subscription: Subscription;
 	private isDeleteFinished = true;
@@ -21,8 +22,8 @@ export class DocumentViewComponent extends BaseComponent {
 	private timeoutStep = 500;
 	private timeoutId: number;
 
-	constructor(private documentService: DocumentService, private router: Router, private route: ActivatedRoute, private authService: AuthService) {
-		super();
+	constructor(private documentService: DocumentService, private router: Router, private route: ActivatedRoute, private authService: AuthService, titleService: Title) {
+		super(titleService, 'Документ');
 	}
 
 	ngOnInit() {
@@ -69,6 +70,7 @@ export class DocumentViewComponent extends BaseComponent {
 	private initDocument(documentId: number) {
 		this.documentService.getDocument(documentId).subscribe(
 			document => {
+				this.setTitle(this.getInitTitle() + ': ' + document.title);
 				this.document = document;
 				this.initDataFields(documentId);
 			},

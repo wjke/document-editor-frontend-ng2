@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule, provide } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -63,6 +63,7 @@ import { TrimDirective } from './pipes/trim.directive';
 		routing
 	],
 	providers: [
+		Title,
 		AuthGuard,
 		AdminGuard,
 		AuthService,
