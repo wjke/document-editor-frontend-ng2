@@ -1,15 +1,15 @@
 <template-list></template-list>
 
 <div class="col-md-9">
-	<div class="jumbotron">
-		<h2>Добавление шаблона</h2>
-		<form [formGroup]="form" (ngSubmit)="formSubmit(form.value)">
-			<div class="form-group" [ngClass]="{'has-error': formError || form.controls.title.touched && form.controls.title.errors}">
-				<label for="title">Название</label>
-				<input formControlName="title" id="title" class="form-control" trim required/>
-				<span class="help-block">{{ formError }}</span>
-			</div>
-			<button type="submit" class="btn btn-primary" [disabled]="!form.valid || !isFinished">Добавить</button>
-		</form>
-	</div>
+    <div class="jumbotron">
+        <h2>Добавление шаблона</h2>
+        <form [formGroup]="form" (ngSubmit)="formSubmit(form.value)">
+            <div class="form-group" [ngClass]="{'has-error': formError || form.controls.title.touched && form.controls.title.errors}">
+                <label for="title">Название</label>
+                <input formControlName="title" id="title" class="form-control" trim required/>
+                <span class="help-block">{{ formError }}</span>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid || !isFinished">Добавить</button>
+        </form>
+    </div>
 </div>

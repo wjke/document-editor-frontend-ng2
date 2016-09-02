@@ -1,21 +1,21 @@
 <div class="bg"></div>
 <div class="container">
     <div class="row">
-		<div class="center-block col-md-4 login-block">
+        <div class="center-block col-md-4 login-block">
 
-			<form name="form" (submit)="login(username.value, password.value)">
-				<div class="form-group">
-					<label for="username">Логин</label>
-					<input #username [disabled]="!isFinished" type="text" class="form-control" id="username" placeholder="admin или user" required>
-				</div>
-				<div class="form-group">
-					<label for="password">Пароль</label>
-					<input #password [disabled]="!isFinished" type="password" class="form-control" id="password" placeholder="pass" required>
-				</div>
-				<div *ngIf="isError" class="alert alert-danger">Неверный логин или пароль, используйте admin;pass или user;pass</div>
-				<button type="submit" [disabled]="!isFinished" class="btn btn-primary">Войти</button>
-			</form>
+            <form name="form" (submit)="login(username.value, password.value)">
+                <div class="form-group">
+                    <label for="username">Логин</label>
+                    <input #username [disabled]="!isFinished" type="text" class="form-control" id="username" placeholder="admin или user" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input #password [disabled]="!isFinished" type="password" class="form-control" id="password" placeholder="pass" required>
+                </div>
+                <div *ngIf="isError" class="alert alert-danger">Неверный логин или пароль, используйте admin;pass или user;pass</div>
+                <button type="submit" [disabled]="!isFinished" class="btn btn-primary">Войти</button>
+            </form>
 
-		</div>
+        </div>
     </div>
 </div>

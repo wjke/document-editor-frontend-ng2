@@ -2,7 +2,7 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule, provide } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule, Http } from '@angular/http'
+import { HttpModule, JsonpModule, Http } from '@angular/http';
 import 'rxjs/add/operator/delay';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 
@@ -33,55 +33,59 @@ import { DocumentService } from './services/document.service';
 import { TrimDirective } from './pipes/trim.directive';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		//NgModule AppModule uses xxxComponent via "entryComponents" but it was neither declared nor imported! This warning will become an error after final.
-		NavigataionComponent,
-		DocumentComponent,
-		DocumentNewComponent,
-		DocumentViewComponent,
-		DocumentEditComponent,
-		DocumentListComponent,
-		DocumentFieldDataEditComponent,
-		TemplateComponent,
-		TemplateViewComponent,
-		TemplateEditComponent,
-		TemplateNewComponent,
-		TemplateFieldNewComponent,
-		TemplateListComponent,
-		TemplateFieldEditComponent,
-		LoginComponent,
-		TrimDirective
-	],
-	imports: [
-		BrowserModule,
-		CommonModule,
-		FormsModule,
-		HttpModule,
-		JsonpModule,
-		ReactiveFormsModule,
-		routing
-	],
-	providers: [
-		Title,
-		AuthGuard,
-		AdminGuard,
-		AuthService,
-		TemplateService,
-		DocumentService,
-		provide(AuthHttp, {
-			useFactory: (http) => {
-				return new AuthHttp(new AuthConfig({
-					headerName: environment.jwt,
-					tokenName: environment.jwt,
-					noTokenScheme: true
-				}), http);
-			},
-			deps: [Http]
-		})
-	],
-	entryComponents: [AppComponent],
-	bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        // NgModule AppModule uses xxxComponent via "entryComponents" but it was neither declared nor imported! This warning will become an error after final.
+        NavigataionComponent,
+        DocumentComponent,
+        DocumentNewComponent,
+        DocumentViewComponent,
+        DocumentEditComponent,
+        DocumentListComponent,
+        DocumentFieldDataEditComponent,
+        TemplateComponent,
+        TemplateViewComponent,
+        TemplateEditComponent,
+        TemplateNewComponent,
+        TemplateFieldNewComponent,
+        TemplateListComponent,
+        TemplateFieldEditComponent,
+        LoginComponent,
+        TrimDirective
+    ],
+    imports: [
+        BrowserModule,
+        CommonModule,
+        FormsModule,
+        HttpModule,
+        JsonpModule,
+        ReactiveFormsModule,
+        routing
+    ],
+    providers: [
+        Title,
+        AuthGuard,
+        AdminGuard,
+        AuthService,
+        TemplateService,
+        DocumentService,
+        provide(AuthHttp, {
+            useFactory: (http) => {
+                return new AuthHttp(new AuthConfig({
+                    headerName: environment.jwt,
+                    tokenName: environment.jwt,
+                    noTokenScheme: true,
+                    globalHeaders: [
+                        {'Content-Type':'application/json'},
+                        {'Accept':'*/*'}
+                    ]
+                }), http);
+            },
+            deps: [Http]
+        })
+    ],
+    entryComponents: [AppComponent],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 

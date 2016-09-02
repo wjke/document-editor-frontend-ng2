@@ -1,28 +1,28 @@
 <document-list></document-list>
 
 <div class="col-md-9" *ngIf="document">
-	<h4>Шаблон документа:
-		<a *ngIf="authService.isAdmin" [routerLink]="['/templates', document.template.id]">{{ document.template.title }}</a>
-		<u *ngIf="!authService.isAdmin">{{ document.template.title }}</u>
-	</h4>
+    <h4>Шаблон документа:
+        <a *ngIf="authService.isAdmin" [routerLink]="['/templates', document.template.id]">{{ document.template.title }}</a>
+        <u *ngIf="!authService.isAdmin">{{ document.template.title }}</u>
+    </h4>
 
-	<div class="jumbotron">
-		<h2>Документ: {{ document.title }}</h2>
-		<h3>Поля:</h3>
-		<div class="alert alert-warning" *ngIf="document.dataFields && document.dataFields.length == 0">Поля не найдены</div>
-		<dl class="dl-horizontal" *ngIf="document.dataFields && document.dataFields.length > 0">
-			<div *ngFor="let dataField of document.dataFields">
-				<dt>{{ dataField.templateField.title }} <small>[{{ dataField.templateField.type }}]</small></dt>
-				<dd>
-					<span *ngIf="!dataField.data && dataField.templateField.type != 'CHECKBOX'">Данные не заполнены</span>
-					<div *ngIf="dataField.data && dataField.templateField.type != 'CHECKBOX'" style="white-space: pre-wrap;">{{ dataField.data }}</div>
-					<span *ngIf="!dataField.data && dataField.templateField.type == 'CHECKBOX'">Нет</span>
-					<span *ngIf="dataField.data && dataField.templateField.type == 'CHECKBOX'">Да</span>
-				</dd>
-			</div>
-		</dl>
+    <div class="jumbotron">
+        <h2>Документ: {{ document.title }}</h2>
+        <h3>Поля:</h3>
+        <div class="alert alert-warning" *ngIf="document.dataFields && document.dataFields.length == 0">Поля не найдены</div>
+        <dl class="dl-horizontal" *ngIf="document.dataFields && document.dataFields.length > 0">
+            <div *ngFor="let dataField of document.dataFields">
+                <dt>{{ dataField.templateField.title }} <small>[{{ dataField.templateField.type }}]</small></dt>
+                <dd>
+                    <span *ngIf="!dataField.data && dataField.templateField.type != 'CHECKBOX'">Данные не заполнены</span>
+                    <div *ngIf="dataField.data && dataField.templateField.type != 'CHECKBOX'" style="white-space: pre-wrap;">{{ dataField.data }}</div>
+                    <span *ngIf="!dataField.data && dataField.templateField.type == 'CHECKBOX'">Нет</span>
+                    <span *ngIf="dataField.data && dataField.templateField.type == 'CHECKBOX'">Да</span>
+                </dd>
+            </div>
+        </dl>
 
-		<a class="btn btn-primary" [routerLink]="['/documents', document.id, 'edit']">Редактировать</a>
-		<button *ngIf="authService.isAdmin" class="btn btn-danger" (click)="deleteDocument(document.id)" [disabled]="!isDeleteFinished">Удалить</button>
-	</div>
+        <a class="btn btn-primary" [routerLink]="['/documents', document.id, 'edit']">Редактировать</a>
+        <button *ngIf="authService.isAdmin" type="button" class="btn btn-danger" (click)="deleteDocument(document.id)" [disabled]="!isDeleteFinished">Удалить</button>
+    </div>
 </div>

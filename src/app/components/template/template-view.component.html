@@ -1,17 +1,17 @@
 <template-list></template-list>
 
 <div class="col-md-9" *ngIf="template">
-	<div class="jumbotron">
-		<h2>Шаблон: {{ template.title }}</h2>
-		<h3>Поля:</h3>
-		<div class="alert alert-warning" *ngIf="template.fields && template.fields.length == 0">Поля не найдены</div>
-		<dl class="dl-horizontal" *ngIf="template.fields && template.fields.length > 0">
-			<div *ngFor="let field of template.fields">
-				<dt>{{ field.title }}</dt>
-				<dd>{{ field.type }}</dd>
-			</div>
-		</dl>
-		<a class="btn btn-primary" [routerLink]="['/templates', template.id, 'edit']">Редактировать</a>
-		<button class="btn btn-danger" (click)="deleteTemplate(template.id)" [disabled]="!isDeleteFinished">Удалить</button>
-	</div>
+    <div class="jumbotron">
+        <h2>Шаблон: {{ template.title }}</h2>
+        <h3>Поля:</h3>
+        <div class="alert alert-warning" *ngIf="template.fields && template.fields.length == 0">Поля не найдены</div>
+        <dl class="dl-horizontal" *ngIf="template.fields && template.fields.length > 0">
+            <div *ngFor="let field of template.fields">
+                <dt>{{ field.title }}</dt>
+                <dd>{{ field.type }}</dd>
+            </div>
+        </dl>
+        <a class="btn btn-primary" [routerLink]="['/templates', template.id, 'edit']">Редактировать</a>
+        <button type="button" class="btn btn-danger" (click)="deleteTemplate(template.id)" [disabled]="!isDeleteFinished">Удалить</button>
+    </div>
 </div>

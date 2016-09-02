@@ -6,18 +6,18 @@ import { AuthGuard } from './auth.guard';
 
 @Injectable()
 export class AdminGuard extends AuthGuard {
-	constructor(router: Router, authService: AuthService) {
-		super(router, authService);
-	}
+    constructor(router: Router, authService: AuthService) {
+        super(router, authService);
+    }
 
-	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-		if(!super.canActivate(route, state))
-			return false;
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        if(!super.canActivate(route, state))
+            return false;
 
-		if(this.authService.isAdmin)
-			return true;
+        if(this.authService.isAdmin)
+            return true;
 
-		this.router.navigate(['/documents']);
+        this.router.navigate(['/documents']);
         return false;
     }
 }
