@@ -8,7 +8,7 @@ import { AuthConfig, AuthHttp } from 'angular2-jwt';
 
 import { environment } from '../environments/environment';
 import { routing } from './app.routes';
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { NavigataionComponent } from './components/shared/navigation.component';
